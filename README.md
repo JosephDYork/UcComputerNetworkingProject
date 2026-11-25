@@ -5,14 +5,6 @@ Builds random packets (basically an 8-byte header + a payload + a checksum), sen
 noisy channel that flips bits, and counts how many corrupted packets each checksum
 fals to catch.
 
-| Name | Width | Used in |
-|------|-------|---------|
-| `internet` | 16-bit | IPv4 / TCP / UDP (RFC 1071) |
-| `fletcher16` | 16-bit | Some legacy protocols, e.g. OSI transport, OSPF |
-| `adler32` | 32-bit | zlib |
-| `crc32` | 32-bit | Ethernet, PNG, zip |
-
-
 ### Run args
 ```sh
 uv run packetsim
