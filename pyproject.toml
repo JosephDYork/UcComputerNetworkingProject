@@ -1,0 +1,20 @@
+[project]
+name = "packetsim"
+version = "0.1.0"
+description = "Network packet simulator for comparing checksum error detection"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+packetsim = "packetsim.main:main"
+
+[dependency-groups]
+dev = ["pytest>=8"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
