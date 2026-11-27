@@ -1,3 +1,4 @@
+import math
 import random
 from dataclasses import dataclass
 
@@ -20,6 +21,23 @@ class SimulationResult:
     @property
     def detection_rate(self) -> float:
         return self.detected / self.corrupted if self.corrupted else 1.0
+
+    @property
+    def undetected_rate(self) -> float:
+        return self.undetected / self.corrupted if self.corrupted else 0.0
+
+    @property
+    def upper_bound_95(self) -> float:
+        n, k = self.corrupted, self.undetected
+
+        if n == 0:
+            return 1.0
+
+        if k == 0:
+            return 3 / n
+
+        z, p = 1.645, k / n
+        return (p + z * z / (2 * n) + z * math.sqrt(p * (1 - p) / n + z * z / (4 * n * n))) / (1 + z * z / n)
 
 
 def simulate(
@@ -50,3 +68,4 @@ def simulate(
                 result.detected += 1
 
     return result
+

@@ -3,7 +3,8 @@ from dataclasses import dataclass
 
 from .checksums import Checksum
 
-HEADER = struct.Struct("!HHIH") # src port, dst port, sequence number, payload length
+# src port, dst port, sequence number, payload length
+HEADER = struct.Struct("!HHIH")
 
 
 @dataclass
