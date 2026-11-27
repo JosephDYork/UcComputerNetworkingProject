@@ -1,9 +1,10 @@
 # UcComputerNetworkingProject
 ## Packet checksum simulator
 
-Builds random packets (a 10-byte header + a payload + a checksum), sends them through a
-noisy channel that corrupts them, and counts how many corrupted packets each checksum
-fails to catch. The checksums compared are the Internet Checksum, Fletcher-16, Adler-32 and CRC-32.
+Builds random packets (a 10-byte header + a payload + a checksum)
+1. Sends them through a noisy channel that corrupts them
+2. Counts how many corrupted packets each checksum fails to catch. 
+3. Covers the Internet Checksum, Fletcher-16, Adler-32 and CRC-32.
 
 ### Run args
 ```sh
